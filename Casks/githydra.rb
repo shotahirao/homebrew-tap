@@ -1,6 +1,6 @@
 cask "githydra" do
-  version "2.1.0"
-  sha256 "69731a60a66b147f9e8f9d83323e0abd24ebf2b60845866e170da101adf6f677"
+  version "2.2.0"
+  sha256 "418cce99e924383c951b38f98d6e9f47d0be70f88aa5d94f9ac5930cea188995"
 
   url "https://github.com/shotahirao/git-hydra/releases/download/v#{version}/GitHydra_#{version}_aarch64.dmg"
   name "GitHydra"
