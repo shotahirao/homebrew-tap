@@ -13,7 +13,6 @@ cask "githydra" do
   end
 
   depends_on arch: :arm64
-  depends_on macos: ">= :high_sierra"
 
   app "GitHydra.app"
 
