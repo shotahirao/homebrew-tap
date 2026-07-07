@@ -18,6 +18,15 @@ A simple Git GUI client (Apple Silicon only).
 brew install --cask shotahirao/tap/githydra
 ```
 
-> **Note**: GitHydra is not notarized by Apple. The cask removes the
-> quarantine attribute automatically after installation, so the app opens
+### [db-fire](https://github.com/shotahirao/db-fire)
+
+A fast, lightweight, cross-platform database client built with Tauri
+(Apple Silicon only). Moved here from the deprecated `shotahirao/db-fire` tap.
+
+```bash
+brew install --cask shotahirao/tap/db-fire
+```
+
+> **Note**: These apps are not notarized by Apple. Each cask removes the
+> quarantine attribute automatically after installation, so the apps open
 > without the Gatekeeper "damaged app" warning.
