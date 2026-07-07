@@ -13,7 +13,6 @@ cask "db-fire" do
   end
 
   auto_updates true
-
   depends_on :macos
   depends_on arch: :arm64
 
