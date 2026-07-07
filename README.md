@@ -15,8 +15,9 @@ brew tap shotahirao/tap
 A simple Git GUI client (Apple Silicon only).
 
 ```bash
-brew install --cask --no-quarantine shotahirao/tap/githydra
+brew install --cask shotahirao/tap/githydra
 ```
 
-> **Note**: GitHydra is not notarized by Apple, so the `--no-quarantine`
-> flag is recommended to avoid the Gatekeeper "damaged app" warning.
+> **Note**: GitHydra is not notarized by Apple. The cask removes the
+> quarantine attribute automatically after installation, so the app opens
+> without the Gatekeeper "damaged app" warning.

@@ -17,6 +17,14 @@ cask "githydra" do
 
   app "GitHydra.app"
 
+  # GitHydra is not notarized, so Gatekeeper would report the app as
+  # "damaged" when the quarantine attribute is present. Remove it so the
+  # app opens normally after installation.
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-rd", "com.apple.quarantine", "#{appdir}/GitHydra.app"]
+  end
+
   zap trash: [
     "~/Library/Application Support/com.githydra.githydra",
     "~/Library/Caches/com.githydra.githydra",
@@ -26,13 +34,9 @@ cask "githydra" do
   ]
 
   caveats <<~EOS
-    GitHydra is not notarized by Apple. To open it without a Gatekeeper
-    warning, install with the --no-quarantine flag:
-
-      brew install --cask --no-quarantine shotahirao/tap/githydra
-
-    If you already installed without the flag, remove the quarantine
-    attribute manually:
+    GitHydra is not notarized by Apple. The quarantine attribute is removed
+    automatically after installation so the app opens without a Gatekeeper
+    warning. If macOS still reports the app as damaged, run:
 
       xattr -rd com.apple.quarantine "#{appdir}/GitHydra.app"
   EOS
