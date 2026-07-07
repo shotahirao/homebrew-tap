@@ -1,0 +1,39 @@
+cask "githydra" do
+  version "2.1.0"
+  sha256 "69731a60a66b147f9e8f9d83323e0abd24ebf2b60845866e170da101adf6f677"
+
+  url "https://github.com/shotahirao/git-hydra/releases/download/v#{version}/GitHydra_#{version}_aarch64.dmg"
+  name "GitHydra"
+  desc "Simple Git GUI client"
+  homepage "https://github.com/shotahirao/git-hydra"
+
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
+
+  depends_on arch: :arm64
+  depends_on macos: ">= :high_sierra"
+
+  app "GitHydra.app"
+
+  zap trash: [
+    "~/Library/Application Support/com.githydra.githydra",
+    "~/Library/Caches/com.githydra.githydra",
+    "~/Library/Preferences/com.githydra.githydra.plist",
+    "~/Library/Saved Application State/com.githydra.githydra.savedState",
+    "~/Library/WebKit/com.githydra.githydra",
+  ]
+
+  caveats <<~EOS
+    GitHydra is not notarized by Apple. To open it without a Gatekeeper
+    warning, install with the --no-quarantine flag:
+
+      brew install --cask --no-quarantine shotahirao/tap/githydra
+
+    If you already installed without the flag, remove the quarantine
+    attribute manually:
+
+      xattr -rd com.apple.quarantine "#{appdir}/GitHydra.app"
+  EOS
+end
